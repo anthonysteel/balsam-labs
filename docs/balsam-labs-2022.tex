@@ -1,25 +1,80 @@
 \documentclass[12pt, letterpaper, twoside]{article}
 \usepackage[utf8]{inputenc}
-\title{Balsam Labs 2021\\ Beginning of Year}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\title{Balsam Labs\\ Research Program 2022}
 \author{Anthony Steel}
 \date{January 2022}
 \begin{document}
 \begin{titlepage}
 \maketitle
 \end{titlepage}
-\section*{Robot}
-Why does a cooking robot not exist? Robots are not able to perform
-dexterous manipulation. Why are robots incapable of dexterous manipulation?
-One of the reasons is that robots lack a sense of touch or somatosensory
-system. Let us consider perception of pressure and vibration first.
-In humans there are a number of cells that are responsible
-for the sense of touch:
+\section{Teaching a robot to cook}
+Imagine that we want to build a robot that can be installed
+in a household kitchen to cook meals from raw ingredients and
+we are not constrained by cost. In order to prepare the meal
+we require a means of manipulating ingredients and tools. Humans
+use their hands for this. You could argue that a special
+purpose manipulator should be built for the task but consider the following
+argument: The space of possible meals that a robot can prepare
+is defined by the manipulator it uses. If we want to span the space
+of all meals humans cook, the manipulator design approaches the human hand.
+The number of digits on your manipulator may not need to be exactly five, but
+for simplicity, lets assume we will use a biomimetic robotic hand with
+five digits. We can allow the manipulator to achieve an arbitrary pose
+in the kitchen by means of a robotic arm with the necessary degrees of freedom
+and a gantry mechanism if required.
+
+At this point, we have introduced nothing that is not already commercially
+available. There are a number of appropriate robotic arms (Universal Robots'
+UR5 or Kuka's IIWA) and biomimetic robotic hands (Shadow's Shadow Hand).
+So why does such a robot not exist? The problem lies in providing the
+appropriate commands to the manipulator. I will call the process of sending commands
+to a humanoid manipulator to perform an arbitrary task accomplishable by
+humans dexterous manipulation.
+\begin{definition}[Dexterous Manipulation]
+  Sending commands to a humanoid manipulator to perform an arbitrary task
+  accomplishable by humans.
+\end{definition}
+Dexterous manipulation, at the time of writing, is an unsolved
+problem in robotics. For example, it is not known how to produce a set of
+commands that will allow a robotic hand to peel an onion, julienne carrots, or
+roll sushi. To determine how we can send these commands, let us consider
+how humans perform such a task.
+
+Humans are able to perform the above tasks because of our sense of touch.
+You may argue that vision is of primary importance but consider this:
+Many skilled tasks can be performed without vision, such as cutting onions,
+peeling carrots, tying knots etc. In fact, during such tasks most of the object
+is occluded by the hands, even when vision is used. Human depth
+perception is actually remarkably bad without feedback from touch, as can
+be demonstrated by experiments in VR. An argument often posed to me
+against touch is the following: it is possible to teleoperate a robot to
+perform complicated tasks such as surgery and the robot does not require
+a sense of touch. However, the process in the surgeons brain
+by which the commands to the joystick are being produced are using
+touch sensation of the joystick as an input. I would imagine the surgeon
+would be hesitant to perform such a surgery with aneasthetized hands.
+
+If we believe that touch, rather than traditional vision, is the appropriate
+sensory modality for manipulation, how do we use it to produce the necessary
+joint commands for dexterous manipulation?
+
+\section{Human Touch}
+There are a number of neuron types collectively called Low Threshold Mechanoreceptors
+or LTMRs. They are subdivided in to 7 categories:
 \begin{enumerate}
-\item Merkel cell
-\item Tactile corpuscles
-\item Pacinian corpuscles
-\item Bulbous corpuscles
+\item Slow Activation I (SAI-LTMR): Indentation
+\item Slow Activation II (SAII-LTMR): Stretch
+\item Rapid Activation I (RAI-LTMR): Skin movement, hair follicle deflection
+\item Rapid Activation II (RAII-LTMR): Vibration
+\item A-delta (Ad-LTMR): Hair follicle deflection
+\item C (C-LTMR): Hair follicle deflection
+\item High Threshold Mechanoreceptors (HTMRs): Noxious mechanical
 \end{enumerate}
-Though a robot may not require this many sensory receptors,
-it does make sense to investigate two: high fidelity and low fidelity.
+
+\section{Algorithm}
+
 \end{document}

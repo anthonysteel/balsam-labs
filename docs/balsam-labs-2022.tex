@@ -4,7 +4,7 @@
 \usepackage[english]{babel}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
-\title{Balsam Labs\\ Research Program 2022}
+\title{Balsam Labs\\ Research 2022}
 \author{Anthony Steel}
 \date{January 2022}
 \begin{document}
@@ -58,13 +58,14 @@ by which the commands to the joystick are being produced are using
 touch sensation of the joystick as an input. I would imagine the surgeon
 would be hesitant to perform such a surgery with aneasthetized hands.
 
-If we believe that touch, rather than traditional vision, is the appropriate
-sensory modality for manipulation, how do we use it to produce the necessary
-joint commands for dexterous manipulation?
+What are the existing solutions for supply a robotic manipulator with a
+sense of touch? There are a number of sensors that are based on elastometric
+tactile sensing such as GelSight, GelTip, SoftBubble etc. These sensors
+use a translucent gel medium superimposed with a light source and a camera.
+When an object is depressed into the gel, it is possible to reconstruct the
+surface normal and depth from the image. So why if such solutions are
+commercially available is there still no dexterous manipulation?
 
-\section{Human Touch}
-There are a number of neuron types collectively called Low Threshold Mechanoreceptors
-or LTMRs. They are subdivided in to 7 categories:
 \begin{enumerate}
 \item Slow Activation I (SAI-LTMR): Indentation
 \item Slow Activation II (SAII-LTMR): Stretch
